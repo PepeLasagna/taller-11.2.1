@@ -4,25 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
     <script src="script.js"></script>
 </head>
 <body>
-    <form class="contact-form" id="contact-form">
+    <form  id="contact-form">
   <h1>Registro</h1>
-  <div class="form-input-material">
-    <input type="text" name="name" id="name" placeholder=" " autocomplete="off" class="form-control-material" required />
+  <div>
+    <input type="text" name="name" id="name" placeholder=" " autocomplete="on"  required />
     <label for="name">Nombre</label>
-  </div>
-  <div class="form-input-material">
-    <input type="text" name="lastname" id="lastname" placeholder=" " autocomplete="off" class="form-control-material" required />
+  </div><br>
+  <div>
+    <input type="text" name="lastname" id="lastname" placeholder=" " autocomplete="on" required />
     <label for="lastname">Apellido</label>
   </div>
-  <div class="form-input-material">
-      <input type="date" name="birthdate" id="birthdate" placeholder=" " autocomplete="off" class="form-control-material" required />
-      <label for="birthdate">Fecha de Nacimiento</label>
-  </div>
-  <button type="submit" class="btn btn-primary btn-ghost">Registrar</button>
+  <div><br>
+    <input type="date" name="birthdate" id="birthdate" placeholder=" " autocomplete="off"  required />
+    <label for="birthdate">Fecha de Nacimiento</label>
+  </div><br>
+  <button type="button" onclick="registro()">Registrar</button>
 </form>
 </body>
 </html>

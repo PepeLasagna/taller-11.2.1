@@ -1,39 +1,31 @@
-document.addEventListener('DOMContentLoaded', function () {
 
-document.getElementById("contact-form").addEventListener("submit", (event) => {
-    event.preventDefault();
+function registro() {
+    // Obtiene los valores del formulario
+    const name = document.getElementById('name').value;
+    const lastname = document.getElementById('lastname').value;
+    const birthdate = document.getElementById('birthdate').value;
 
-    const name = document.getElementById("name").value;
-    const lastname = document.getElementById("lastname").value;
-    const birthdate = document.getElementById("birthdate").value;
-
-
-    const data = {
+    // Crea un objeto que almacena los datos
+    const formData = {
         name: name,
         lastname: lastname,
         birthdate: birthdate
     };
 
-    postData("https://jsonplaceholder.typicode.com/users", data)
-        .then((response) =>{
-            console.log(response);
-        })
-        .catch((error) =>{
-            console.log("Error: ", error);
-        });
-})
-
-async function postData(url = "", data = {}) {
-    const response = await fetch(url, {
-        method: "POST",
+    // Realiza una solicitud POST a la URL especificada usando fetch
+    fetch('https://jsonplaceholder.typicode.com/users', {
+        method: 'POST',
         headers: {
-                "Content-Type": "aplication/json"
+            'Content-Type': 'application/json'
         },
-        body: JSON.stringify(data)
+
+        body: JSON.stringify(formData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+    })
+    .catch(error => {
+        console.error('Error:', error);
     });
-
-    return await response.json();
-    console.log(response)
 }
-
-});
